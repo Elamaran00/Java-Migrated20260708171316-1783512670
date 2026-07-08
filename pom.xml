@@ -13,6 +13,10 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <assertj.version>3.27.7</assertj.version>
+            <junit.jupiter.version>5.10.2</junit.jupiter.version>
+            <mockito.version>5.12.0</mockito.version>
+            <maven.surefire.version>3.2.5</maven.surefire.version>
+            <jacoco.version>0.8.12</jacoco.version>
     </properties>
 
     <dependencyManagement>
@@ -24,7 +28,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-        </dependencies>
+                <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
     </dependencyManagement>
 
     <dependencies>
@@ -82,7 +92,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.15</version>
+                <version>${jacoco.version}</version>
                 <executions>
                     <execution>
                         <goals>
